@@ -1,0 +1,16 @@
+<ul class="structure">
+  <li *ngFor="let node of tree | sort: 'type'">
+    
+
+      <div *ngIf="node.type=='file'"  class="clickable file"><img [src]="getIcon(node.name)" width="20" height="20"/>  {{ node.name }}</div>  
+      <div *ngIf="node.type=='folder'" class="folder clickable" >
+        <span (click)="expand(node)"><span>{{node.isExpanded ? '-':'+'}}</span><span><img class="folder_image" src="/assets/img/folder.jpg" width="30" height="30"/></span><span>{{ node.name }}{{getChildCount(node)}}</span></span>  
+       <div *ngIf="node.isExpanded">
+          <ul class="structure">
+          <app-tree-structure [tree]="node.children"></app-tree-structure>
+        </ul> 
+      </div> 
+     
+    </div>
+      
+</ul>
