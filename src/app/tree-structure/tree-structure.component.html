@@ -1,5 +1,5 @@
 <ul class="structure">
-  <li *ngFor="let node of tree | sort: 'type'">
+  <li *ngFor="let node of tree | sort: 'name':'asc' | sort: 'type'">
     
 
       <div *ngIf="node.type=='file'"  class="clickable file"><img [src]="getIcon(node.name)" width="20" height="20"/>  {{ node.name }}</div>  
